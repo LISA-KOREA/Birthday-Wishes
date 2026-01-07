@@ -4,10 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Birthday 🎉</title>
+
+    <!-- Font Awesome (Social Icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- HERO -->
     <div class="hero">
         <h1>Happy Birthday 🎂</h1>
         <p>Wishing you all the love and happiness 💖</p>
@@ -16,20 +21,48 @@
         <p id="countdown"></p>
     </div>
 
-    <!-- Slideshow image (URL comes from config.json) -->
+    <!-- SLIDESHOW -->
     <div class="slideshow">
         <img id="slideImage" class="slide" alt="Memory">
     </div>
 
+    <!-- CANDLE -->
+    <div class="candle-section">
+        <div id="flame">🔥</div>
+        <div id="candle">🕯</div>
+        <p class="candle-text">Tap the candle to blow it 🎂</p>
+    </div>
+
+    <!-- SOCIAL ICONS -->
+    <section class="social-section">
+        <h2>Social</h2>
+
+        <div class="social-icons">
+            <a href="https://t.me/JOBIN_JUSTIN" target="_blank" aria-label="Telegram">
+                <i class="fa-brands fa-telegram"></i>
+            </a>
+
+            <a href="https://github.com/LISA-KOREA" target="_blank" aria-label="GitHub">
+                <i class="fa-brands fa-github"></i>
+            </a>
+
+            <a href="https://twitter.com/NJAN_MALAYALEE" target="_blank" aria-label="X">
+                <i class="fa-brands fa-x-twitter"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- CONFETTI -->
     <canvas id="confetti-canvas"></canvas>
 
-    <!-- 🎵 MUSIC FROM LOCAL FILE -->
+    <!-- MUSIC -->
     <audio id="birthdaySong" loop preload="auto">
         <source src="assets/music/birthday.mp3" type="audio/mpeg">
     </audio>
 
+    <!-- FOOTER -->
     <footer class="copyright">
-        © All Rights Reserved by <strong>Jobin J</strong>
+        © 2025 All rights reserved · <strong>Jobin J</strong>
     </footer>
 
     <script src="script.js"></script>
