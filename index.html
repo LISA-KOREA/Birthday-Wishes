@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday 🎉</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="hero">
+        <h1>Happy 28th Birthday! 🎂</h1>
+        <p>Wishing you all the love and happiness in the world 💖</p>
+
+        <button id="musicBtn" onclick="toggleMusic()">🎵 Play Music</button>
+        <p id="countdown"></p>
+    </div>
+
+    <div class="slideshow">
+        <img id="slideImage" src="assets/photos/photo1.jpeg" alt="Memory" class="slide">
+    </div>
+
+    <canvas id="confetti-canvas"></canvas>
+
+    <audio id="birthdaySong" loop preload="auto">
+        <source src="assets/music/birthday.mp3" type="audio/mpeg">
+    </audio>
+
+    <footer class="copyright">
+        © All Rights Reserved by <strong>Jobin J</strong>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
