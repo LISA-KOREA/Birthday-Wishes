@@ -1,0 +1,13 @@
+{
+  "name": "My Sister",
+  "birthDateIST": "2026-01-08",
+  "heading": "Happy 28th Birthday! 🎂",
+  "message": "Wishing you all the love and happiness in the world 💖",
+  "popupMessage": "You are not just my sister, you are my best friend 🌸",
+  "music": "assets/music/birthday.mp3",
+  "photos": [
+    "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e",
+    "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
+    "https://images.unsplash.com/photo-1494790108377-be9c29b29330"
+  ]
+}
