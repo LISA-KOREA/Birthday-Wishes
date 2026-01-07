@@ -1,107 +1,151 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(to top right, #ffecd2 0%, #fcb69f 100%);
-    overflow-x: hidden;
+    font-family: "Poppins", "Segoe UI", sans-serif;
+    background: linear-gradient(120deg, #1f2c34, #2f4f5f, #1f2c34);
+    background-size: 400% 400%;
+    animation: gradientBG 12s ease infinite;
+    color: #fff;
     text-align: center;
+    overflow-x: hidden;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 /* HERO */
 .hero {
-    padding: 50px 20px;
-    animation: fadeIn 2s ease-in-out;
+    margin: 60px auto 40px;
+    max-width: 420px;
+    padding: 35px 25px;
+    border-radius: 28px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
 }
 
 .hero h1 {
-    font-size: 3em;
-    color: #ff4081;
-    text-shadow: 2px 2px #fff;
+    color: #ff6fa7;
+    font-size: 2.6em;
 }
 
 .hero p {
-    font-size: 1.4em;
-    color: #333;
+    opacity: 0.85;
 }
 
 /* BUTTON */
 button {
-    background-color: #ff4081;
-    color: white;
-    border: none;
-    padding: 14px 30px;
+    margin-top: 18px;
+    padding: 14px 36px;
     font-size: 16px;
+    border-radius: 999px;
+    border: none;
+    background: linear-gradient(135deg, #ff3f81, #ff6fa7);
+    color: white;
     cursor: pointer;
-    border-radius: 30px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.25);
-    transition: transform 0.2s ease;
-    margin-top: 15px;
+    box-shadow: 0 12px 25px rgba(255,63,129,0.45);
+    transition: 0.25s;
 }
 
 button:hover {
-    transform: scale(1.08);
+    transform: translateY(-2px) scale(1.05);
+}
+
+/* MUSIC GLOW */
+.music-glow {
+    animation: glowPulse 1.2s infinite alternate;
+}
+
+@keyframes glowPulse {
+    from { box-shadow: 0 0 25px rgba(255,111,167,0.4); }
+    to { box-shadow: 0 0 60px rgba(255,111,167,0.9); }
 }
 
 /* SLIDESHOW */
 .slideshow {
-    display: flex;
-    justify-content: center;
-    margin: 30px 0;
+    margin: 40px auto;
+    max-width: 320px;
 }
 
 .slide {
-    width: 300px;
-    max-width: 90%;
-    border-radius: 15px;
-    box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+    width: 100%;
+    border-radius: 22px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.4);
 }
 
-/* POPUP */
-.popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: white;
-    padding: 25px;
-    border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-    z-index: 999;
-    animation: fadeIn 0.5s ease-in-out;
+/* CANDLE */
+.candle-section {
+    margin: 30px auto;
 }
 
-/* CONFETTI CANVAS */
+#flame {
+    font-size: 50px;
+    animation: flicker 0.3s infinite alternate;
+}
+
+#candle {
+    font-size: 80px;
+    cursor: pointer;
+}
+
+@keyframes flicker {
+    from { transform: rotate(-3deg); }
+    to { transform: rotate(3deg); }
+}
+
+.blow-out {
+    animation: blowOut 0.6s forwards;
+}
+
+@keyframes blowOut {
+    to { opacity: 0; transform: scale(0); }
+}
+
+/* SOCIAL ICONS */
+.social-section {
+    margin: 70px 0 30px;
+}
+
+.social-section h2 {
+    font-size: 32px;
+    margin-bottom: 25px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+}
+
+.social-icons a {
+    font-size: 30px;
+    color: #6fdcff;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    color: #ffffff;
+    transform: translateY(-6px) scale(1.2);
+    text-shadow: 0 0 15px rgba(111,220,255,0.9);
+}
+
+/* CONFETTI */
 canvas {
     position: fixed;
-    top: 0;
-    left: 0;
+    inset: 0;
     z-index: -1;
     pointer-events: none;
 }
 
-/* HEART ANIMATION */
-@keyframes floatUp {
-    to {
-        transform: translateY(-120vh);
-        opacity: 0;
-    }
-}
-
-/* FADE */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
 /* FOOTER */
 .copyright {
-    margin: 40px 0 20px;
-    font-size: 14px;
-    color: rgba(0, 0, 0, 0.6);
-}
-
-/* MOBILE */
-@media (max-width: 600px) {
-    .hero h1 {
-        font-size: 2.2em;
-    }
+    margin: 40px 0 25px;
+    font-size: 13px;
+    opacity: 0.6;
 }
