@@ -1,4 +1,6 @@
+// ==========================
 // 🎵 MUSIC CONTROL
+// ==========================
 function toggleMusic() {
     const audio = document.getElementById("birthdaySong");
     const btn = document.getElementById("musicBtn");
@@ -12,7 +14,9 @@ function toggleMusic() {
     }
 }
 
-// 🎁 SURPRISE POPUP (after 4s)
+// ==========================
+// 🎁 SURPRISE POPUP
+// ==========================
 setTimeout(() => {
     const popup = document.createElement("div");
     popup.className = "popup";
@@ -27,12 +31,18 @@ setTimeout(() => {
     document.body.appendChild(popup);
 }, 4000);
 
-// ⏳ COUNTDOWN (CHANGE DATE HERE)
-const birthdayIST = new Date(Date.UTC(2026, 0, 08, 0, 0, 0)); 
+// ==========================
+// 🇮🇳 IST COUNTDOWN – JAN 8
+// ==========================
+const birthdayIST = new Date(Date.UTC(2026, 0, 8, 0, 0, 0)); // January = 0
+
+function getISTTime() {
+    return new Date(Date.now() + (5.5 * 60 * 60 * 1000));
+}
 
 setInterval(() => {
-    const now = new Date().getTime();
-    const diff = birthdayDate - now;
+    const nowIST = getISTTime();
+    const diff = birthdayIST.getTime() - nowIST.getTime();
     const countdown = document.getElementById("countdown");
 
     if (diff > 0) {
@@ -46,7 +56,9 @@ setInterval(() => {
     }
 }, 1000);
 
+// ==========================
 // 💖 FLOATING HEARTS
+// ==========================
 setInterval(() => {
     const heart = document.createElement("div");
     heart.innerHTML = "💖";
@@ -60,20 +72,37 @@ setInterval(() => {
     setTimeout(() => heart.remove(), 4000);
 }, 900);
 
-// 🖼 SLIDESHOW
-const images = [
-    "assets/photos/photo1.JPG",
-    "assets/photos/photo2.jpg",
-    "assets/photos/photo3.JPG"
-];
-
+// ==========================
+// 🖼 SLIDESHOW (FROM config.json)
+// ==========================
+let images = [];
 let current = 0;
-setInterval(() => {
-    current = (current + 1) % images.length;
-    document.getElementById("slideImage").src = images[current];
-}, 3000);
+const slideImg = document.getElementById("slideImage");
 
-// 🎊 CONFETTI
+fetch("config.json")
+    .then(res => res.json())
+    .then(config => {
+        images = config.photos || [];
+
+        if (images.length > 0) {
+            slideImg.src = images[0];
+
+            setInterval(() => {
+                current = (current + 1) % images.length;
+                slideImg.src = images[current];
+            }, 3000);
+        } else {
+            slideImg.style.display = "none";
+        }
+    })
+    .catch(err => {
+        console.error("Failed to load config.json", err);
+        slideImg.style.display = "none";
+    });
+
+// ==========================
+// 🎊 CONFETTI EFFECT
+// ==========================
 const canvas = document.getElementById("confetti-canvas");
 const ctx = canvas.getContext("2d");
 
@@ -87,7 +116,7 @@ for (let i = 0; i < 120; i++) {
         y: Math.random() * canvas.height,
         r: Math.random() * 15 + 5,
         d: Math.random() * 120,
-        color: `hsl(${Math.random() * 360},100%,50%)`,
+        color: `hsl(${Math.random() * 360}, 100%, 50%)`,
         tilt: Math.random() * 10 - 10,
         tiltAngle: 0,
         tiltAngleIncremental: Math.random() * 0.07 + 0.05
