@@ -1,4 +1,4 @@
-# 🎉 Birthday Surprise Website
+### 🎉 Birthday Surprise Website
 
 A modern, premium birthday surprise website built using **HTML, CSS, and JavaScript**.  
 Anyone can easily customize it by changing photos, music, and birthday details.
